@@ -1,0 +1,69 @@
+var readlineSync = require("readline-sync");
+
+var score = 0;
+
+// question and answers
+var questions = 
+[
+    {
+      question:"Do you Invest in Stock Markets? ",
+      answer:"Yes"
+    }
+
+  ,
+    {
+    question:"Do you know the different sectors? ",
+    answer:"Yes"
+    }
+  ,
+    {
+    question:"Do you want me to tell you about different sectors? ",
+    answer:"Yes"
+    }   
+];
+
+//This takes user name
+function welcomeMsg() {
+ var userName = readlineSync.question("What is your name? ");
+
+  console.log("Welcome "+ userName + " do you know me?");
+}
+
+
+//play function
+function play(question, answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer.toUpperCase() === answer.toUpperCase()) {
+    console.log("right!");
+    score = score + 1;
+    
+  } else {
+    console.log("wrong!");
+   
+  }
+
+  console.log("current score: ", score);
+  console.log("-------------")
+}
+
+// quiz function
+function quiz()
+{
+  for (var i=0; i<questions.length; i++)
+  {
+    var currentQuestion = questions[i];
+    play(currentQuestion.question, currentQuestion.answer)
+  }
+}
+
+//This will display scores at the end of program
+function showScores()
+{
+  console.log("Your Final Score is", score);
+}
+
+//function call
+welcomeMsg();
+quiz();
+showScores();
