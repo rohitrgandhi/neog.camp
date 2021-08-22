@@ -58,7 +58,7 @@ function quiz() {
 //This will display scores at the end of program
 function showScores() {
   console.log("Your Final Score is", score);
-
+  maxScores.map(score => console.log(score.name, " : ", score.score))
   console.log("Even I dnt know myself well how can YOU!");
 }
 
